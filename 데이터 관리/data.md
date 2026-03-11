@@ -84,19 +84,7 @@ graph TD
 
 #### 이미지 증강 예시
 
-```mermaid
-graph LR
-    A["🖼 원본 이미지"]
-    A --> B["↔ 좌우 반전"]
-    A --> C["↻ 90° 회전"]
-    A --> D["🔍 확대/축소"]
-    A --> E["🌗 밝기/색상 변환"]
-    style A fill:#2196F3,color:#fff
-    style B fill:#FF9800,color:#fff
-    style C fill:#FF9800,color:#fff
-    style D fill:#FF9800,color:#fff
-    style E fill:#FF9800,color:#fff
-```
+![이미지 증강](https://www.ibm.com/adobe/dynamicmedia/deliver/dm-aid--eaee14ad-c604-487e-a2c0-a8aa7d118fc2/data-augmentation-image-augment.png?preferwebp=true)
 
 > 원본 1장 → 증강으로 4~10장의 변형 데이터 생성 가능
 
