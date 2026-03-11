@@ -77,6 +77,42 @@ graph TD
 데이터가 적거나 클래스가 불균형할 때, 기존 데이터를 기반으로 합성 데이터를 생성하여 학습량을 늘립니다.
 증강은 **학습 데이터에만** 적용하며, 테스트 데이터는 절대 증강하지 않습니다.
 
+#### SMOTE 원리
+
+```mermaid
+graph LR
+    subgraph "Before SMOTE"
+        A["● ● ● ● ● ● ● ●<br/>다수 클래스 (80개)"]
+        B["▲ ▲<br/>소수 클래스 (2개)"]
+    end
+    subgraph "After SMOTE"
+        C["● ● ● ● ● ● ● ●<br/>다수 클래스 (80개)"]
+        D["▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲<br/>소수 클래스 (8개 = 원본2 + 합성6)"]
+    end
+    A --> C
+    B -->|"보간으로<br/>합성 생성"| D
+    style B fill:#F44336,color:#fff
+    style D fill:#4CAF50,color:#fff
+```
+
+#### 이미지 증강 예시
+
+```mermaid
+graph LR
+    A["🖼 원본 이미지"]
+    A --> B["↔ 좌우 반전"]
+    A --> C["↻ 90° 회전"]
+    A --> D["🔍 확대/축소"]
+    A --> E["🌗 밝기/색상 변환"]
+    style A fill:#2196F3,color:#fff
+    style B fill:#FF9800,color:#fff
+    style C fill:#FF9800,color:#fff
+    style D fill:#FF9800,color:#fff
+    style E fill:#FF9800,color:#fff
+```
+
+> 원본 1장 → 증강으로 4~10장의 변형 데이터 생성 가능
+
 | 기법 | 대상 | 핵심 원리 |
 |------|------|-----------|
 | **SMOTE** | 테이블 데이터 | 소수 클래스 샘플 사이를 보간하여 합성 데이터 생성 |
