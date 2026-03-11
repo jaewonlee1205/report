@@ -25,13 +25,7 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 #### Hold-Out (단순 분리)
 
-```mermaid
-graph LR
-    A[전체 데이터] -->|80%| B[Training]
-    A -->|20%| C[Test]
-    style B fill:#4CAF50,color:#fff
-    style C fill:#F44336,color:#fff
-```
+![Hold-Out](https://algotrading101.com/learn/wp-content/uploads/2020/06/training-validation-test-data-set.png)
 
 #### K-Fold 교차 검증 (K=5 예시)
 
