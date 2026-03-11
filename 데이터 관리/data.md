@@ -73,19 +73,7 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 #### Learning Curve (학습 곡선) — 오버피팅 판별의 핵심
 
-학습이 진행될수록 Training Loss와 Validation Loss가 어떻게 변하는지 관찰하면 오버피팅을 판별할 수 있습니다.
-
-```mermaid
-xychart-beta
-    title "오버피팅 발생 시 Learning Curve"
-    x-axis "학습 횟수 (Epoch)" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    y-axis "Loss (손실)" 0 --> 10
-    line "Training Loss" [9, 7, 5, 3.5, 2.5, 1.8, 1.2, 0.8, 0.5, 0.3]
-    line "Validation Loss" [9, 7.5, 5.5, 4.5, 4.2, 4.5, 5, 5.8, 6.5, 7.5]
-```
-
-> Training Loss는 계속 줄어드는데 Validation Loss가 다시 올라가는 지점 = **오버피팅 시작**
-> 위 그래프에서 Epoch 5 부근이 최적의 학습 중단 지점(Early Stopping)
+![오버피팅 Learning Curve](https://static.wikidocs.net/images/page/152777/overfit.JPG)
 
 ### 오버피팅 vs 언더피팅
 
