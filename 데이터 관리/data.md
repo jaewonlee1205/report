@@ -77,29 +77,44 @@ graph TD
 데이터가 적거나 클래스가 불균형할 때, 기존 데이터를 기반으로 합성 데이터를 생성하여 학습량을 늘립니다.
 증강은 **학습 데이터에만** 적용하며, 테스트 데이터는 절대 증강하지 않습니다.
 
-#### SMOTE 원리
+#### 불균형 데이터 해결 방법
 
-Before — 불균형 상태:
 ```mermaid
-xychart-beta
-    title "Before SMOTE (불균형)"
-    x-axis "X축" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    y-axis "Y축" 0 --> 10
-    line "다수 클래스 ●" [2, 3, 2.5, 3.5, 4, 3, 2, 3.5, 4.5, 3]
-    line "소수 클래스 ▲" [8, 8.5, 0, 0, 0, 0, 0, 0, 0, 0]
+block-beta
+    columns 3
+    space:3
+    A["📊 Original Dataset<br/>불균형 상태"]:1
+    space:2
+
+    space:3
+
+    B["Undersampling<br/>다수 클래스를 줄임"]:1
+    space:1
+    C["Oversampling (SMOTE)<br/>소수 클래스를 늘림"]:1
+
+    space:3
+
+    D["다수 ██░░<br/>소수 ██"]:1
+    space:1
+    E["다수 ████████<br/>소수 ████████"]:1
+
+    style A fill:#2196F3,color:#fff
+    style B fill:#FF9800,color:#fff
+    style C fill:#4CAF50,color:#fff
+    style D fill:#FF9800,color:#fff
+    style E fill:#4CAF50,color:#fff
 ```
 
-After — SMOTE 적용 후:
 ```mermaid
 xychart-beta
-    title "After SMOTE (균형)"
-    x-axis "X축" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    y-axis "Y축" 0 --> 10
-    line "다수 클래스 ●" [2, 3, 2.5, 3.5, 4, 3, 2, 3.5, 4.5, 3]
-    line "소수 클래스 ▲ (원본+합성)" [8, 8.5, 8.2, 7.8, 8.3, 7.5, 8.1, 8.4, 7.9, 8.2]
+    title "Undersampling vs Oversampling (데이터 수)"
+    x-axis ["원본 다수", "원본 소수", "Undersample 다수", "Undersample 소수", "Oversample 다수", "Oversample 소수"]
+    y-axis "샘플 수" 0 --> 100
+    bar [90, 10, 10, 10, 90, 90]
 ```
 
-> 소수 클래스 샘플 2개 사이를 보간하여 합성 데이터를 생성 → 다수 클래스와 비슷한 수량으로 균형 맞춤
+> **Undersampling**: 다수 클래스에서 샘플을 제거하여 소수 클래스와 수량을 맞춤
+> **Oversampling (SMOTE)**: 소수 클래스 샘플 사이를 보간하여 합성 데이터를 생성 → 다수 클래스와 균형
 
 #### 이미지 증강 예시
 
