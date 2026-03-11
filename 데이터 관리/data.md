@@ -85,6 +85,8 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 ### Feature 간 다중공선성 (Multicollinearity)
 
+![다중공선성](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd9ea552d-e7fc-4083-8f89-b3c2b69962fc%2FUntitled.png&blockId=56087be2-b720-4ef2-afd1-000edd49cbde)
+
 입력 Feature(X) 간에 강한 상관관계가 있으면, 모델이 어떤 Feature가 진짜 영향을 주는지 구분하지 못해 가중치가 불안정해지고 오버피팅이 심화됩니다.
 
 | 항목 | 내용 |
