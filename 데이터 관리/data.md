@@ -128,6 +128,41 @@ graph LR
 모델이 학습 데이터에 **지나치게 맞춰져서**, 학습 데이터에서는 정확도가 높지만 새로운 데이터에서는 성능이 급격히 떨어지는 현상입니다.
 모델이 데이터의 일반적인 패턴이 아니라 **노이즈(잡음)까지 외워버린 상태**입니다.
 
+#### 모델 복잡도에 따른 피팅 상태
+
+```mermaid
+graph LR
+    subgraph "언더피팅 (Underfitting)"
+        A["데이터: 곡선 형태<br/>모델: 직선 ─<br/>❌ 패턴을 포착 못함"]
+    end
+    subgraph "적절한 학습 (Good Fit)"
+        B["데이터: 곡선 형태<br/>모델: 완만한 곡선 ~<br/>✅ 일반적 패턴 포착"]
+    end
+    subgraph "오버피팅 (Overfitting)"
+        C["데이터: 곡선 형태<br/>모델: 구불구불 ∿∿∿<br/>❌ 노이즈까지 외움"]
+    end
+    A -->|"복잡도 증가"| B -->|"복잡도 과다"| C
+    style A fill:#FF9800,color:#fff
+    style B fill:#4CAF50,color:#fff
+    style C fill:#F44336,color:#fff
+```
+
+#### Learning Curve (학습 곡선) — 오버피팅 판별의 핵심
+
+학습이 진행될수록 Training Loss와 Validation Loss가 어떻게 변하는지 관찰하면 오버피팅을 판별할 수 있습니다.
+
+```mermaid
+xychart-beta
+    title "오버피팅 발생 시 Learning Curve"
+    x-axis "학습 횟수 (Epoch)" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y-axis "Loss (손실)" 0 --> 10
+    line "Training Loss" [9, 7, 5, 3.5, 2.5, 1.8, 1.2, 0.8, 0.5, 0.3]
+    line "Validation Loss" [9, 7.5, 5.5, 4.5, 4.2, 4.5, 5, 5.8, 6.5, 7.5]
+```
+
+> Training Loss는 계속 줄어드는데 Validation Loss가 다시 올라가는 지점 = **오버피팅 시작**
+> 위 그래프에서 Epoch 5 부근이 최적의 학습 중단 지점(Early Stopping)
+
 ### 오버피팅 vs 언더피팅
 
 | 상태 | 학습 정확도 | 테스트 정확도 | 설명 |
