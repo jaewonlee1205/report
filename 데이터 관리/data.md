@@ -77,6 +77,10 @@ graph TD
 데이터가 적거나 클래스가 불균형할 때, 기존 데이터를 기반으로 합성 데이터를 생성하여 학습량을 늘립니다.
 증강은 **학습 데이터에만** 적용하며, 테스트 데이터는 절대 증강하지 않습니다.
 
+#### SMOTE 원리
+
+![SMOTE](https://imghub.insilicogen.com/media/photos/SMOTE_OPUxJ6w.png)
+
 #### 불균형 데이터 해결 방법
 
 ```mermaid
