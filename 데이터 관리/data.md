@@ -34,16 +34,6 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
   - 예) 고양이 30%, 개 70% → 학습/테스트 모두 이 비율 유지
 - **데이터 누수(Data Leakage) 방지** — 테스트 데이터의 정보가 학습 과정에 절대 섞여 들어가면 안 됩니다.
 
-### scikit-learn 예시
-
-```python
-from sklearn.model_selection import train_test_split
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
-```
-
 ---
 
 ## 2. 오버피팅(과적합) 문제
