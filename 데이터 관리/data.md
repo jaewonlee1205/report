@@ -34,14 +34,6 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
   - 예) 고양이 30%, 개 70%인 데이터 → 학습/테스트 세트 모두 이 비율 유지
 - **데이터 누수(Data Leakage) 방지**: 테스트 데이터의 정보가 학습 과정에 절대 섞여 들어가면 안 됩니다.
 
-### scikit-learn 예시 코드
-
-```python
-from sklearn.model_selection import train_test_split
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
 ```
 
 ---
@@ -65,17 +57,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 1. **학습 손실**(Training Loss)은 계속 줄어드는데, **검증 손실**(Validation Loss)이 다시 올라가기 시작 → 오버피팅 신호
 2. 학습 정확도와 검증 정확도의 **격차가 점점 벌어짐** → 대표적인 징후
-
-### 오버피팅 방지 기법
-
-| 기법 | 설명 |
-|------|------|
-| **더 많은 데이터 확보** | 가장 근본적인 해결책. 데이터가 많을수록 일반적 패턴 학습 확률 증가 |
-| **정규화 (Regularization)** | L1, L2 정규화로 모델 가중치가 지나치게 커지는 것을 방지 |
-| **드롭아웃 (Dropout)** | 학습 중 뉴런 일부를 무작위로 비활성화하여 과도한 의존 방지 |
-| **조기 종료 (Early Stopping)** | 검증 손실이 더 이상 줄어들지 않으면 학습 중단 |
-| **데이터 증강 (Data Augmentation)** | 이미지 회전, 반전, 크기 조절 등으로 학습 데이터를 인위적으로 확장 |
-| **교차 검증 (Cross Validation)** | K-Fold 교차 검증으로 여러 번 반복하여 일반화 능력 확인 |
 
 ---
 
