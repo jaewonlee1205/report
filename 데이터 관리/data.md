@@ -19,18 +19,6 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 따라서 데이터를 반드시 학습용(Training Set)과 평가용(Test Set)으로 나눠야 합니다.
 
-### 일반적인 분리 비율
-
-```mermaid
-graph LR
-    A[전체 데이터 100%] --> B["Training Set 70~80%<br/>모델이 패턴을 학습"]
-    A --> C["Validation Set 10~15%<br/>하이퍼파라미터 조정, 과적합 확인"]
-    A --> D["Test Set 10~15%<br/>최종 성능 평가 (단 한 번만 사용)"]
-    style B fill:#4CAF50,color:#fff
-    style C fill:#FF9800,color:#fff
-    style D fill:#F44336,color:#fff
-```
-
 ### 대표적인 데이터 분리 기법
 
 분리 방식에 따라 모델 정확도의 신뢰성이 달라집니다. 잘못 분리하면 학습 시 93%인데 실제 배포 후 78%가 될 수 있습니다.
