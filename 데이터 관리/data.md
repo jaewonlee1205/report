@@ -21,15 +21,49 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 ### 일반적인 분리 비율
 
-| 구분 | 비율 | 용도 |
-|------|------|------|
-| **Training Set** (학습) | 70~80% | 모델이 패턴을 학습 |
-| **Validation Set** (검증) | 10~15% | 하이퍼파라미터 조정, 과적합 확인 |
-| **Test Set** (테스트) | 10~15% | 최종 성능 평가 (단 한 번만 사용) |
+```mermaid
+graph LR
+    A[전체 데이터 100%] --> B["Training Set 70~80%<br/>모델이 패턴을 학습"]
+    A --> C["Validation Set 10~15%<br/>하이퍼파라미터 조정, 과적합 확인"]
+    A --> D["Test Set 10~15%<br/>최종 성능 평가 (단 한 번만 사용)"]
+    style B fill:#4CAF50,color:#fff
+    style C fill:#FF9800,color:#fff
+    style D fill:#F44336,color:#fff
+```
 
 ### 대표적인 데이터 분리 기법
 
 분리 방식에 따라 모델 정확도의 신뢰성이 달라집니다. 잘못 분리하면 학습 시 93%인데 실제 배포 후 78%가 될 수 있습니다.
+
+#### Hold-Out (단순 분리)
+
+```mermaid
+graph LR
+    A[전체 데이터] -->|80%| B[Training]
+    A -->|20%| C[Test]
+    style B fill:#4CAF50,color:#fff
+    style C fill:#F44336,color:#fff
+```
+
+#### K-Fold 교차 검증 (K=5 예시)
+
+```mermaid
+graph TD
+    subgraph "1회차"
+        A1["Test"] --- A2["Train"] --- A3["Train"] --- A4["Train"] --- A5["Train"]
+    end
+    subgraph "2회차"
+        B1["Train"] --- B2["Test"] --- B3["Train"] --- B4["Train"] --- B5["Train"]
+    end
+    subgraph "3회차"
+        C1["Train"] --- C2["Train"] --- C3["Test"] --- C4["Train"] --- C5["Train"]
+    end
+    style A1 fill:#F44336,color:#fff
+    style B2 fill:#F44336,color:#fff
+    style C3 fill:#F44336,color:#fff
+```
+
+> 매 회차마다 다른 Fold가 테스트 → 5번 반복 → 평균 성능 = 안정적 평가
 
 | 기법 | 핵심 개념 | 적합한 상황 | 정확도 신뢰도 |
 |------|-----------|------------|:------------:|
