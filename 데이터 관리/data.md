@@ -101,39 +101,21 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 ### 3-1. 텍스트 데이터 → CSV / Pandas DataFrame
 
-텍스트 데이터는 **CSV** 파일로 저장하고, **Pandas**로 DataFrame으로 변환하여 다룹니다.
+텍스트 데이터는 CSV 파일로 저장하고, Pandas의 DataFrame으로 변환하여 행/열 단위로 다룹니다.
 
-#### CSV 파일 예시
+![DataFrame](https://media.geeksforgeeks.org/wp-content/uploads/20251206163931071616/dataframe.webp)
 
-```csv
-text,label
-"오늘 날씨가 좋습니다",긍정
-"서비스가 너무 불편합니다",부정
-"보통이에요",중립
-```
+> CSV → `pd.read_csv()` → DataFrame으로 변환하여 필터링, 정렬, 통계 등 데이터 조작 수행
 
-#### Pandas로 읽기
+#### DB의 varchar/str과 DataFrame의 차이
 
-```python
-import pandas as pd
-
-df = pd.read_csv("data.csv")
-
-print(df.head())       # 상위 5개 행 확인
-print(df.shape)        # (행 수, 열 수)
-print(df.info())       # 데이터 타입과 결측치
-print(df.describe())   # 기본 통계 정보
-```
-
-#### DataFrame 핵심 기능
-
-```python
-df["text"]                             # 특정 열 선택
-df.dropna()                            # 결측치 행 제거
-df["label"].value_counts()             # 클래스별 데이터 수
-df.sample(frac=1)                      # 데이터 셔플
-df.to_csv("output.csv", index=False)   # CSV로 저장
-```
+| 항목 | varchar / str | Pandas DataFrame |
+|------|:------------:|:----------------:|
+| **소속** | DB 테이블의 컬럼 타입 | Python 메모리 상의 테이블 구조 |
+| **단위** | 단일 값 (셀 하나) | 행(row) × 열(column) 전체 테이블 |
+| **타입 지정** | 선언 시 고정 (VARCHAR(255)) | 자동 추론 (object, int64, float64) |
+| **조작 방식** | SQL 쿼리 (SELECT, WHERE) | Python 코드 (df.head(), df.dropna()) |
+| **용도** | 데이터 저장/관리 | 데이터 분석/전처리/시각화 |
 
 ---
 
