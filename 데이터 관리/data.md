@@ -79,21 +79,27 @@ graph TD
 
 #### SMOTE 원리
 
+Before — 불균형 상태:
 ```mermaid
-graph LR
-    subgraph "Before SMOTE"
-        A["● ● ● ● ● ● ● ●<br/>다수 클래스 (80개)"]
-        B["▲ ▲<br/>소수 클래스 (2개)"]
-    end
-    subgraph "After SMOTE"
-        C["● ● ● ● ● ● ● ●<br/>다수 클래스 (80개)"]
-        D["▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲<br/>소수 클래스 (8개 = 원본2 + 합성6)"]
-    end
-    A --> C
-    B -->|"보간으로<br/>합성 생성"| D
-    style B fill:#F44336,color:#fff
-    style D fill:#4CAF50,color:#fff
+xychart-beta
+    title "Before SMOTE (불균형)"
+    x-axis "X축" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y-axis "Y축" 0 --> 10
+    line "다수 클래스 ●" [2, 3, 2.5, 3.5, 4, 3, 2, 3.5, 4.5, 3]
+    line "소수 클래스 ▲" [8, 8.5, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
+
+After — SMOTE 적용 후:
+```mermaid
+xychart-beta
+    title "After SMOTE (균형)"
+    x-axis "X축" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y-axis "Y축" 0 --> 10
+    line "다수 클래스 ●" [2, 3, 2.5, 3.5, 4, 3, 2, 3.5, 4.5, 3]
+    line "소수 클래스 ▲ (원본+합성)" [8, 8.5, 8.2, 7.8, 8.3, 7.5, 8.1, 8.4, 7.9, 8.2]
+```
+
+> 소수 클래스 샘플 2개 사이를 보간하여 합성 데이터를 생성 → 다수 클래스와 비슷한 수량으로 균형 맞춤
 
 #### 이미지 증강 예시
 
