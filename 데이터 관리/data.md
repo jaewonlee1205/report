@@ -29,21 +29,7 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 #### K-Fold 교차 검증 (K=5 예시)
 
-```mermaid
-graph TD
-    subgraph "1회차"
-        A1["Test"] --- A2["Train"] --- A3["Train"] --- A4["Train"] --- A5["Train"]
-    end
-    subgraph "2회차"
-        B1["Train"] --- B2["Test"] --- B3["Train"] --- B4["Train"] --- B5["Train"]
-    end
-    subgraph "3회차"
-        C1["Train"] --- C2["Train"] --- C3["Test"] --- C4["Train"] --- C5["Train"]
-    end
-    style A1 fill:#F44336,color:#fff
-    style B2 fill:#F44336,color:#fff
-    style C3 fill:#F44336,color:#fff
-```
+![K-Fold CV](https://imghub.insilicogen.com/media/photos/cv.png)
 
 > 매 회차마다 다른 Fold가 테스트 → 5번 반복 → 평균 성능 = 안정적 평가
 
