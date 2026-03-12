@@ -23,11 +23,11 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 분리 방식에 따라 모델 정확도의 신뢰성이 달라집니다. 잘못 분리하면 학습 시 93%인데 실제 배포 후 78%가 될 수 있습니다.
 
-#### Hold-Out (단순 분리)
+#### 1-2-1. Hold-Out (단순 분리)
 
 ![Hold-Out](https://algotrading101.com/learn/wp-content/uploads/2020/06/training-validation-test-data-set.png)
 
-#### K-Fold 교차 검증 (K=5 예시)
+#### 1-2-2. K-Fold 교차 검증 (K=5 예시)
 
 ![K-Fold CV](https://imghub.insilicogen.com/media/photos/cv.png)
 
@@ -40,17 +40,17 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 | **Stratified K-Fold** | K-Fold + 각 Fold에서 클래스 비율 유지 | 클래스 불균형 분류 문제 (가장 권장) | 매우 높음 |
 | **Time Series Split** | 시간 순서대로 과거→학습, 미래→테스트 | 주가, 날씨, 로그 등 시계열 데이터 | 높음 |
 
-### 데이터가 부족할 때 — 데이터 증강(Data Augmentation)
+### 1-3. 데이터가 부족할 때 — 데이터 증강(Data Augmentation)
 
 데이터가 적거나 클래스가 불균형할 때, 기존 데이터를 기반으로 합성 데이터를 생성하여 학습량을 늘립니다.
 증강은 **학습 데이터에만** 적용하며, 테스트 데이터는 절대 증강하지 않습니다.
 
-#### SMOTE 원리
+#### 1-3-1. SMOTE 원리
 
 ![SMOTE](https://imghub.insilicogen.com/media/photos/SMOTE_OPUxJ6w.png)
 
 
-#### 이미지 증강 예시
+#### 1-3-2. 이미지 증강 예시
 
 ![이미지 증강](https://www.ibm.com/adobe/dynamicmedia/deliver/dm-aid--eaee14ad-c604-487e-a2c0-a8aa7d118fc2/data-augmentation-image-augment.png?preferwebp=true)
 
