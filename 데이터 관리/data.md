@@ -131,20 +131,6 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 | **흑백** (Grayscale) | `(높이, 너비)` | 각 픽셀: `0`(검정) ~ `255`(흰색) |
 | **컬러** (RGB) | `(높이, 너비, 3)` | 각 픽셀: `[R, G, B]` 예) `[255, 0, 0]` = 빨간색 |
 
-#### 이미지 → 숫자 배열 변환
-
-```python
-from PIL import Image
-import numpy as np
-
-img = Image.open("photo.jpg")
-img_array = np.array(img)
-
-print(img_array.shape)    # 예: (224, 224, 3)
-print(img_array.dtype)    # uint8 (0~255)
-print(img_array[0][0])    # 첫 픽셀의 [R, G, B]
-```
-
 #### 정규화 (Normalization)
 
 픽셀 값을 `0~1` 범위로 변환하면 학습 속도와 안정성이 향상됩니다.
