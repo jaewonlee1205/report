@@ -87,13 +87,7 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 ![다중공선성](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd9ea552d-e7fc-4083-8f89-b3c2b69962fc%2FUntitled.png&blockId=56087be2-b720-4ef2-afd1-000edd49cbde)
 
-입력 Feature(X) 간에 강한 상관관계가 있으면, 모델이 어떤 Feature가 진짜 영향을 주는지 구분하지 못해 가중치가 불안정해지고 오버피팅이 심화됩니다.
-
-| 항목 | 내용 |
-|------|------|
-| **예시** | "키"와 "신발 사이즈"는 거의 같이 움직임 → 둘 다 넣으면 중복 정보 |
-| **판별** | VIF(분산팽창계수) > 10이면 다중공선성 의심 |
-| **해결** | 상관관계 높은 Feature 중 하나를 제거하거나, PCA로 차원 축소 |
+X Feature 간 상관관계가 높으면(예: "키"와 "신발 사이즈"), 두 Feature가 거의 동일한 패턴을 띄기 때문에 모델이 어떤 Feature가 진짜 영향을 주는지 구분하지 못합니다. 결과적으로 가중치가 불안정해지고 학습에 지장이 생깁니다.
 
 ---
 
