@@ -66,12 +66,12 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 
 ## 2. 오버피팅(과적합) 문제
 
-### 오버피팅이란?
+### 2-1. 오버피팅이란?
 
 모델이 학습 데이터에 **지나치게 맞춰져서**, 학습 데이터에서는 정확도가 높지만 새로운 데이터에서는 성능이 급격히 떨어지는 현상입니다.
 모델이 데이터의 일반적인 패턴이 아니라 **노이즈(잡음)까지 외워버린 상태**입니다.
 
-#### Learning Curve (학습 곡선) — 오버피팅 판별의 핵심
+#### 2-1-1. Learning Curve (학습 곡선) — 오버피팅 판별의 핵심
 
 ![오버피팅 Learning Curve](https://static.wikidocs.net/images/page/152777/overfit.JPG)
 
@@ -83,7 +83,7 @@ AI/머신러닝에서 **"데이터"**는 모델이 학습하고 평가받는 재
 | **적절한 학습** | 높음 | 높음 | 일반적 패턴 포착, 새 데이터에도 잘 작동 |
 | **오버피팅** | 매우 높음 | 낮음 | 노이즈까지 외워버린 상태 |
 
-### Feature 간 다중공선성 (Multicollinearity)
+### 2-2. Feature 간 다중공선성 (Multicollinearity)
 
 ![다중공선성](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd9ea552d-e7fc-4083-8f89-b3c2b69962fc%2FUntitled.png&blockId=56087be2-b720-4ef2-afd1-000edd49cbde)
 
