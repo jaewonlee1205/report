@@ -177,6 +177,8 @@ img_array = np.array(img_resized) / 255.0
 
 ### 4-3. RVQ (Residual Vector Quantization) — 다차원 양자화
 
+![RVQ](https://moonlight-paper-snapshot.s3.ap-northeast-2.amazonaws.com/arxiv/improving-test-time-performance-of-rvq-based-neural-codecs-1.png)
+
 기존 토크나이저는 텍스트를 1차원 숫자 나열(토큰 ID)로 변환합니다.
 하지만 이 방식은 "이 단어가 어떤 의미/감정/맥락을 가지는지"까지 담기엔 한계가 있습니다.
 
